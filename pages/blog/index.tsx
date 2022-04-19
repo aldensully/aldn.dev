@@ -7,7 +7,6 @@ export default function Blog () {
     <AnimatePresence>
       <motion.div>
         <Box w='full'>
-          alsk halsdfh 
         </Box>
       </motion.div>
     </AnimatePresence>
