@@ -3,14 +3,13 @@ import { extendTheme } from '@chakra-ui/react'
 import "@fontsource/ibm-plex-mono";
 // 2. Extend the theme to include custom colors, fonts, etc
 const colors = {
-  backgroundDark:'#12111B',
-  backgroundLight:'#fff',
-  accentDark:'#4E5C86',
-  accentLight:'#CCC',
-  primaryTextDark:'#FFF',
-  primaryTextLight:'#000',
-  secondaryTextDark:'#6A7280',
-  secondaryTextLight:'#CBCBCB'
+  // background:'#12111B',
+  background:'#000',
+  accent:'#4E5C86',
+  teal: "#78E2F3",
+  lightTeal: "#B0F3FF",
+  primaryText:'#F7f7f7',
+  secondaryText:'#838995',
 }
 
 const theme = extendTheme({
