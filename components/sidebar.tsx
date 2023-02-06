@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useState } from 'react';
 import {
   IconButton,
   Box,
@@ -21,6 +21,7 @@ import {
 } from 'react-icons/fi';
 import { IconType } from 'react-icons';
 import { ReactText } from 'react';
+import { motion, Variants } from 'framer-motion';
 
 interface LinkItemProps {
   name: string;
@@ -28,39 +29,54 @@ interface LinkItemProps {
   path: string;
 }
 const LinkItems: Array<LinkItemProps> = [
-  { name: 'aldn.dev', icon: FiHome, path:'/' },
-  { name: 'Blog', icon: FiTrendingUp , path:'/blog'},
-  { name: 'Contact', icon: FiCompass , path:'/contact'},
+  { name: 'aldn.dev', icon: FiHome, path: '/' },
+  { name: 'Projects', icon: FiTrendingUp, path: '/blog' },
+  { name: 'About me', icon: FiCompass, path: '/contact' },
+  { name: 'Music', icon: FiCompass, path: '/contact' },
 ];
-
-export default function Sidebar({children}:{children:ReactNode}) {
+// <Box minH="100vh" w='full' bg='background' >
+//   <SidebarContent
+//     onClose={() => onClose}
+//     display={{ base: 'none', md: 'block' }}
+//   />
+//   <Drawer
+//     autoFocus={false}
+//     isOpen={isOpen}
+//     placement="left"
+//     onClose={onClose}
+//     returnFocusOnClose={false}
+//     onOverlayClick={onClose}
+//     size="full">
+//     <DrawerContent>
+//       <SidebarContent onClose={onClose} />
+//     </DrawerContent>
+//   </Drawer>
+//   {/* mobilenav */}
+//   <MobileNav display={{ base: 'flex', md: 'none' }} onOpen={onOpen} />
+//   <Flex  w='full' justify='center'>
+//     <Flex direction='column' minH='100vh' align='center' w={{base:'full',sm:'full',md:'2xl',lg:'3xl',xl:'5xl'}} ml={{base:0,md:32,lg:60}} py={8} px={{base:4,sm:16}}  >
+//       {children}
+//     </Flex>
+//   </Flex>
+// </Box>
+export default function Sidebar({ children }: { children: ReactNode; }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [show, setShow] = useState(false);
+
   return (
-    <Box minH="100vh" w='full' bg='background' >
-      <SidebarContent
-        onClose={() => onClose}
-        display={{ base: 'none', md: 'block' }}
-      />
-      <Drawer
-        autoFocus={false}
-        isOpen={isOpen}
-        placement="left"
-        onClose={onClose}
-        returnFocusOnClose={false}
-        onOverlayClick={onClose}
-        size="full">
-        <DrawerContent>
-          <SidebarContent onClose={onClose} />
-        </DrawerContent>
-      </Drawer>
-      {/* mobilenav */}
-      <MobileNav display={{ base: 'flex', md: 'none' }} onOpen={onOpen} />
-      <Flex  w='full' justify='center'>
-        <Flex direction='column' minH='100vh' align='center' w={{base:'full',sm:'full',md:'2xl',lg:'3xl',xl:'5xl'}} ml={{base:0,md:32,lg:60}} py={8} px={{base:4,sm:16}}  >
+    <div className='bg-bg min-h-screen w-full px-5'>
+      <div className='flex flex-col lg:flex-row'>
+        <div className=' min-w-[200px] flex flex-col'>
+          {show && (['Projects', 'Music', 'About me'].map((val, i) => (
+            <text className='text-text text-lg font-bold'>{val}</text>
+          ))
+          )}
+        </div>
+        <div>
           {children}
-        </Flex>
-      </Flex>
-    </Box>
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -74,7 +90,7 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
       bg='background'
       // borderRight="1px"
       // borderRightColor={'accent'}
-      w={{ base: 'full', md:32, lg: 60 }}
+      w={{ base: 'full', md: 32, lg: 60 }}
       pos="fixed"
       h="100vh"
       align='center'
@@ -116,7 +132,7 @@ const NavItem = ({ icon, children, path, ...rest }: NavItemProps) => {
         role="group"
         cursor="pointer"
         _hover={{
-          fontWeight:'bold',
+          fontWeight: 'bold',
           color: 'primaryText',
         }}
         {...rest}>
@@ -142,7 +158,7 @@ interface MobileProps extends FlexProps {
 const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
   return (
     <Flex
-      ml={{ base: 0, md:32, lg: 60 }}
+      ml={{ base: 0, md: 32, lg: 60 }}
       px={{ base: 4, lg: 24 }}
       height="20"
       alignItems="center"
