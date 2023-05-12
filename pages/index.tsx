@@ -13,7 +13,7 @@ const WelcomeScreen = () => {
       <div className='flex flex-col lg:flex-row items-center justify-center'>
         <div className='flex flex-2 w-full justify-center flex-col items-center'>
           <div className='flex flex-col'>
-            <text className='w-full flex-2 text-text text-lg font-bold'>Hi, I'm Alden</text>
+            <text className='w-full flex-2 text-text text-lg font-bold'>{"Hi, I'm Alden"}</text>
             <text className='text-text text-md font-reg w-full md:max-w-[60%]'>This is my personal site and occasional brain dump.</text>
           </div>
           {/*<Link href={'/projects'}>
