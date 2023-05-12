@@ -11,12 +11,16 @@
   "dependencies": {
     "@chakra-ui/react": "^1.8.8",
     "@fontsource/ibm-plex-mono": "^4.5.7",
+    "@react-three/drei": "^9.68.2",
+    "@react-three/fiber": "^8.13.0",
+    "@types/three": "^0.152.0",
     "framer-motion": "^6.5.1",
     "next": "12.1.5",
     "react": "18.0.0",
     "react-dom": "18.0.0",
     "react-icons": "^4.3.1",
-    "sass": "^1.51.0"
+    "sass": "^1.51.0",
+    "three": "^0.152.2"
   },
   "devDependencies": {
     "@types/node": "17.0.25",
