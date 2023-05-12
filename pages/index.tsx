@@ -23,12 +23,12 @@ const WelcomeScreen = () => {
           </Link>
 		  */}
 		  <div className='items-center flex flex-row gap-8 absolute left-[50%] bottom-[10%] translate-x-[-50%] justify-center w-[260px] h-[60px] bg-bg  border-fg rounded-small'>
-			  <Link href={'/gameoflife'}>
+			  <Link passHref href={'/gameoflife'}>
 				<button className='items-center justify-center  h-[60px] bg-fg w-[200px]  border-fg rounded-small'>
 				  <text className='text-bg text-sm font-reg'>Game of Life</text>
 				</button>
 			  </Link>
-			<Link href={'/playSpace'}>
+			<Link passHref href={'/playSpace'}>
 				<button className='items-center justify-center ph-4  h-[60px] bg-fg w-[220px]  border-fg rounded-small'>
               <text className='text-bg text-sm font-reg'>Play space</text>
             </button>

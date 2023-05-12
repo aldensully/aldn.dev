@@ -68,7 +68,7 @@ export default function Sidebar({ children }: { children: ReactNode; }) {
       <div className='flex flex-col lg:flex-row'>
         <div className=' min-w-[200px] flex flex-col'>
           {show && (['Projects', 'Music', 'About me'].map((val, i) => (
-            <text className='text-text text-lg font-bold'>{val}</text>
+            <text key={val} className='text-text text-lg font-bold'>{val}</text>
           ))
           )}
         </div>
